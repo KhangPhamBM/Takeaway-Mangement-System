@@ -12,10 +12,4 @@
     <ProjectReference Include="..\SnackDeliveryLibrary\SnackDeliveryLibrary.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="SnackDeliveryLibrary">
-      <HintPath>..\SnackDeliveryLibrary\bin\Debug\net6.0\SnackDeliveryLibrary.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>
