@@ -374,6 +374,7 @@
             btn_deleteProduct.TabIndex = 10;
             btn_deleteProduct.Text = "Delete";
             btn_deleteProduct.UseVisualStyleBackColor = true;
+            btn_deleteProduct.Click += btn_deleteProduct_Click;
             // 
             // btn_updateProduct
             // 
@@ -393,6 +394,7 @@
             btn_createProduct.TabIndex = 8;
             btn_createProduct.Text = "Create";
             btn_createProduct.UseVisualStyleBackColor = true;
+            btn_createProduct.Click += btn_createProduct_Click;
             // 
             // txt_productDiscount
             // 
