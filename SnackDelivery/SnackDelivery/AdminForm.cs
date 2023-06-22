@@ -1,4 +1,5 @@
-﻿using SnackDeliveryLibrary.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using SnackDeliveryLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -86,6 +87,7 @@ namespace SnackDelivery
                 dgv_account.DataSource = search;
 
             }
+            DataBinding();
         }
 
         private void btn_searchProduct_Click(object sender, EventArgs e)
@@ -96,6 +98,7 @@ namespace SnackDelivery
                 var search = _context.Products.Where(product => product.Name.Contains(txt_searchProduct.Text)).ToList();
                 dgv_productList.DataSource = search;
             }
+            DataBinding();
 
         }
 
@@ -166,8 +169,29 @@ namespace SnackDelivery
 
         private void btn_create_Click(object sender, EventArgs e)
         {
-            CreateAccount createAccount = new CreateAccount();  
-            createAccount.Show();   
+            CreateAccount createAccount = new CreateAccount();
+            createAccount.Show();
+        }
+
+        private void btn_reportSearch_Click(object sender, EventArgs e)
+        {
+            var orders = _context.Orders
+      .Where(o => o.OrderDate >= dateTimeStart.Value && o.OrderDate < dateTimeEnd.Value)
+      .ToList();
+            double totalAmount = (double)_context.Orders
+            .Where(o => o.OrderDate >= dateTimeStart.Value && o.OrderDate <= dateTimeEnd.Value)
+            .Join(_context.OrderDetails,
+                order => order.Id,
+                orderDetail => orderDetail.Id,
+                (order, orderDetail) => new { Order = order, OrderDetail = orderDetail })
+            .Join(_context.Products,
+                od => od.OrderDetail.ProductId,
+                product => product.Id,
+                (od, product) => new { OrderDetail = od.OrderDetail, Product = product })
+            .Sum(odp => odp.OrderDetail.Quantity * odp.Product.Price);
+            lbl_total.Text = totalAmount.ToString();
+            dgv_report.DataSource = orders;
+
         }
     }
 }

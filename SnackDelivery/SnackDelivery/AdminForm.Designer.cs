@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             Report = new TabPage();
+            lbl_total = new Label();
+            label6 = new Label();
+            dgv_report = new DataGridView();
+            panel4 = new Panel();
+            dateTimeStart = new DateTimePicker();
+            btn_reportSearch = new Button();
+            dateTimeEnd = new DateTimePicker();
+            label5 = new Label();
             Account = new TabPage();
             panel9 = new Panel();
             btn_deleteAccount = new Button();
@@ -70,6 +78,9 @@
             label1 = new Label();
             dgv_productList = new DataGridView();
             product = new TabControl();
+            Report.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv_report).BeginInit();
+            panel4.SuspendLayout();
             Account.SuspendLayout();
             panel9.SuspendLayout();
             panel8.SuspendLayout();
@@ -85,6 +96,10 @@
             // 
             // Report
             // 
+            Report.Controls.Add(lbl_total);
+            Report.Controls.Add(label6);
+            Report.Controls.Add(dgv_report);
+            Report.Controls.Add(panel4);
             Report.Location = new Point(4, 24);
             Report.Name = "Report";
             Report.Padding = new Padding(3);
@@ -92,6 +107,76 @@
             Report.TabIndex = 2;
             Report.Text = "Report";
             Report.UseVisualStyleBackColor = true;
+            // 
+            // lbl_total
+            // 
+            lbl_total.BackColor = Color.Gainsboro;
+            lbl_total.Location = new Point(199, 77);
+            lbl_total.Name = "lbl_total";
+            lbl_total.Size = new Size(61, 15);
+            lbl_total.TabIndex = 7;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(161, 77);
+            label6.Name = "label6";
+            label6.Size = new Size(32, 15);
+            label6.TabIndex = 6;
+            label6.Text = "Total";
+            // 
+            // dgv_report
+            // 
+            dgv_report.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_report.Location = new Point(133, 117);
+            dgv_report.Name = "dgv_report";
+            dgv_report.RowTemplate.Height = 25;
+            dgv_report.Size = new Size(546, 287);
+            dgv_report.TabIndex = 5;
+            // 
+            // panel4
+            // 
+            panel4.Controls.Add(dateTimeStart);
+            panel4.Controls.Add(btn_reportSearch);
+            panel4.Controls.Add(dateTimeEnd);
+            panel4.Controls.Add(label5);
+            panel4.Location = new Point(80, 6);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(706, 68);
+            panel4.TabIndex = 4;
+            // 
+            // dateTimeStart
+            // 
+            dateTimeStart.Location = new Point(12, 13);
+            dateTimeStart.Name = "dateTimeStart";
+            dateTimeStart.Size = new Size(200, 23);
+            dateTimeStart.TabIndex = 0;
+            // 
+            // btn_reportSearch
+            // 
+            btn_reportSearch.Location = new Point(596, 15);
+            btn_reportSearch.Name = "btn_reportSearch";
+            btn_reportSearch.Size = new Size(75, 23);
+            btn_reportSearch.TabIndex = 3;
+            btn_reportSearch.Text = "Search";
+            btn_reportSearch.UseVisualStyleBackColor = true;
+            btn_reportSearch.Click += btn_reportSearch_Click;
+            // 
+            // dateTimeEnd
+            // 
+            dateTimeEnd.Location = new Point(346, 13);
+            dateTimeEnd.Name = "dateTimeEnd";
+            dateTimeEnd.Size = new Size(200, 23);
+            dateTimeEnd.TabIndex = 1;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(270, 19);
+            label5.Name = "label5";
+            label5.Size = new Size(18, 15);
+            label5.TabIndex = 2;
+            label5.Text = "to";
             // 
             // Account
             // 
@@ -494,6 +579,11 @@
             Name = "AdminForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Admin Form";
+            Report.ResumeLayout(false);
+            Report.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv_report).EndInit();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             Account.ResumeLayout(false);
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
@@ -556,5 +646,13 @@
         private Label label1;
         private DataGridView dgv_productList;
         private TabControl product;
+        private DateTimePicker dateTimeEnd;
+        private DateTimePicker dateTimeStart;
+        private Panel panel4;
+        private Button btn_reportSearch;
+        private Label label5;
+        private Label lbl_total;
+        private Label label6;
+        private DataGridView dgv_report;
     }
 }
