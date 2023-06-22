@@ -31,7 +31,7 @@ public partial class SnackDeliveryContext : DbContext
     {
         modelBuilder.Entity<Account>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Account__3213E83F1FA924E4");
+            entity.HasKey(e => e.Id).HasName("PK__Account__3213E83F305175E2");
 
             entity.ToTable("Account");
 
@@ -41,6 +41,10 @@ public partial class SnackDeliveryContext : DbContext
             entity.Property(e => e.Name)
                 .HasMaxLength(50)
                 .HasColumnName("name");
+            entity.Property(e => e.Password)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("password");
             entity.Property(e => e.PhoneNumber)
                 .HasMaxLength(50)
                 .IsUnicode(false)
@@ -49,7 +53,7 @@ public partial class SnackDeliveryContext : DbContext
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Order__3213E83F72BDAD08");
+            entity.HasKey(e => e.Id).HasName("PK__Order__3213E83F188D5554");
 
             entity.ToTable("Order");
 
@@ -62,7 +66,7 @@ public partial class SnackDeliveryContext : DbContext
 
         modelBuilder.Entity<OrderDetail>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__OrderDet__3213E83FF161553E");
+            entity.HasKey(e => e.Id).HasName("PK__OrderDet__3213E83FD805B13A");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.OrderId).HasColumnName("orderId");
@@ -80,7 +84,7 @@ public partial class SnackDeliveryContext : DbContext
 
         modelBuilder.Entity<Product>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Product__3213E83F066E9332");
+            entity.HasKey(e => e.Id).HasName("PK__Product__3213E83F3E85A29B");
 
             entity.ToTable("Product");
 

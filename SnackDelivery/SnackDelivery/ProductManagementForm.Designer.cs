@@ -34,9 +34,9 @@
             button12 = new Button();
             button11 = new Button();
             button10 = new Button();
-            textBox12 = new TextBox();
-            textBox11 = new TextBox();
-            textBox10 = new TextBox();
+            txt_accountPhonenum = new TextBox();
+            txt_accountName = new TextBox();
+            txt_accountId = new TextBox();
             cbb_role = new ComboBox();
             label14 = new Label();
             label13 = new Label();
@@ -60,10 +60,10 @@
             btn_deleteProduct = new Button();
             btn_updateProduct = new Button();
             btn_createProduct = new Button();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            txt_productDiscount = new TextBox();
+            txt_productPrice = new TextBox();
+            txt_productName = new TextBox();
+            txt_productId = new TextBox();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
@@ -112,9 +112,9 @@
             panel9.Controls.Add(button12);
             panel9.Controls.Add(button11);
             panel9.Controls.Add(button10);
-            panel9.Controls.Add(textBox12);
-            panel9.Controls.Add(textBox11);
-            panel9.Controls.Add(textBox10);
+            panel9.Controls.Add(txt_accountPhonenum);
+            panel9.Controls.Add(txt_accountName);
+            panel9.Controls.Add(txt_accountId);
             panel9.Controls.Add(cbb_role);
             panel9.Controls.Add(label14);
             panel9.Controls.Add(label13);
@@ -152,26 +152,26 @@
             button10.Text = "Create";
             button10.UseVisualStyleBackColor = true;
             // 
-            // textBox12
+            // txt_accountPhonenum
             // 
-            textBox12.Location = new Point(156, 101);
-            textBox12.Name = "textBox12";
-            textBox12.Size = new Size(169, 23);
-            textBox12.TabIndex = 7;
+            txt_accountPhonenum.Location = new Point(156, 101);
+            txt_accountPhonenum.Name = "txt_accountPhonenum";
+            txt_accountPhonenum.Size = new Size(169, 23);
+            txt_accountPhonenum.TabIndex = 7;
             // 
-            // textBox11
+            // txt_accountName
             // 
-            textBox11.Location = new Point(156, 67);
-            textBox11.Name = "textBox11";
-            textBox11.Size = new Size(169, 23);
-            textBox11.TabIndex = 6;
+            txt_accountName.Location = new Point(156, 67);
+            txt_accountName.Name = "txt_accountName";
+            txt_accountName.Size = new Size(169, 23);
+            txt_accountName.TabIndex = 6;
             // 
-            // textBox10
+            // txt_accountId
             // 
-            textBox10.Location = new Point(156, 33);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(169, 23);
-            textBox10.TabIndex = 5;
+            txt_accountId.Location = new Point(156, 33);
+            txt_accountId.Name = "txt_accountId";
+            txt_accountId.Size = new Size(169, 23);
+            txt_accountId.TabIndex = 5;
             // 
             // cbb_role
             // 
@@ -262,6 +262,7 @@
             btn_searchAccount.TabIndex = 2;
             btn_searchAccount.Text = "Search";
             btn_searchAccount.UseVisualStyleBackColor = true;
+            btn_searchAccount.Click += btn_searchAccount_Click;
             // 
             // txt_accountSearch
             // 
@@ -329,6 +330,7 @@
             btn_searchProduct.TabIndex = 2;
             btn_searchProduct.Text = "Search";
             btn_searchProduct.UseVisualStyleBackColor = true;
+            btn_searchProduct.Click += btn_searchProduct_Click;
             // 
             // txt_searchProduct
             // 
@@ -351,10 +353,10 @@
             panel1.Controls.Add(btn_deleteProduct);
             panel1.Controls.Add(btn_updateProduct);
             panel1.Controls.Add(btn_createProduct);
-            panel1.Controls.Add(textBox4);
-            panel1.Controls.Add(textBox3);
-            panel1.Controls.Add(textBox2);
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(txt_productDiscount);
+            panel1.Controls.Add(txt_productPrice);
+            panel1.Controls.Add(txt_productName);
+            panel1.Controls.Add(txt_productId);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
@@ -381,6 +383,7 @@
             btn_updateProduct.TabIndex = 9;
             btn_updateProduct.Text = "Update";
             btn_updateProduct.UseVisualStyleBackColor = true;
+            btn_updateProduct.Click += btn_updateProduct_Click;
             // 
             // btn_createProduct
             // 
@@ -391,33 +394,33 @@
             btn_createProduct.Text = "Create";
             btn_createProduct.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // txt_productDiscount
             // 
-            textBox4.Location = new Point(118, 151);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(150, 23);
-            textBox4.TabIndex = 7;
+            txt_productDiscount.Location = new Point(118, 151);
+            txt_productDiscount.Name = "txt_productDiscount";
+            txt_productDiscount.Size = new Size(150, 23);
+            txt_productDiscount.TabIndex = 7;
             // 
-            // textBox3
+            // txt_productPrice
             // 
-            textBox3.Location = new Point(118, 119);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(150, 23);
-            textBox3.TabIndex = 6;
+            txt_productPrice.Location = new Point(118, 119);
+            txt_productPrice.Name = "txt_productPrice";
+            txt_productPrice.Size = new Size(150, 23);
+            txt_productPrice.TabIndex = 6;
             // 
-            // textBox2
+            // txt_productName
             // 
-            textBox2.Location = new Point(118, 87);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(150, 23);
-            textBox2.TabIndex = 5;
+            txt_productName.Location = new Point(118, 87);
+            txt_productName.Name = "txt_productName";
+            txt_productName.Size = new Size(150, 23);
+            txt_productName.TabIndex = 5;
             // 
-            // textBox1
+            // txt_productId
             // 
-            textBox1.Location = new Point(118, 55);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(150, 23);
-            textBox1.TabIndex = 4;
+            txt_productId.Location = new Point(118, 55);
+            txt_productId.Name = "txt_productId";
+            txt_productId.Size = new Size(150, 23);
+            txt_productId.TabIndex = 4;
             // 
             // label4
             // 
@@ -509,9 +512,9 @@
         private Button button12;
         private Button button11;
         private Button button10;
-        private TextBox textBox12;
-        private TextBox textBox11;
-        private TextBox textBox10;
+        private TextBox txt_accountPhonenum;
+        private TextBox txt_accountName;
+        private TextBox txt_accountId;
         private ComboBox cbb_role;
         private Label label14;
         private Label label13;
@@ -535,10 +538,10 @@
         private Button btn_deleteProduct;
         private Button btn_updateProduct;
         private Button btn_createProduct;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox txt_productDiscount;
+        private TextBox txt_productPrice;
+        private TextBox txt_productName;
+        private TextBox txt_productId;
         private Label label4;
         private Label label3;
         private Label label2;
