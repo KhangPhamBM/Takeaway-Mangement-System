@@ -11,24 +11,28 @@ using System.Windows.Forms;
 
 namespace SnackDelivery
 {
-    public partial class ProductManagementForm : Form
+    public partial class AdminForm : Form
     {
         private SnackDeliveryContext _context = new SnackDeliveryContext();
-        public ProductManagementForm()
+        public AdminForm()
         {
             InitializeComponent();
             LoadData();
-            DataBinding();
+
         }
 
         public void DataBinding()
         {
-            //   BindingSource source = new BindingSource();
-            //   source.DataSource = GetProducts();
+
             txt_productId.DataBindings.Clear();
             txt_productName.DataBindings.Clear();
             txt_productPrice.DataBindings.Clear();
             txt_productDiscount.DataBindings.Clear();
+
+            txt_productId.DataBindings.Add(new Binding("Text", dgv_productList.DataSource, "Id"));
+            txt_productName.DataBindings.Add(new Binding("Text", dgv_productList.DataSource, "Name"));
+            txt_productPrice.DataBindings.Add("Text", dgv_productList.DataSource, "Price", true, DataSourceUpdateMode.OnPropertyChanged, 0);
+            txt_productDiscount.DataBindings.Add("Text", dgv_productList.DataSource, "Discount", true, DataSourceUpdateMode.OnPropertyChanged, 0);
 
 
             txt_accountId.DataBindings.Clear();
@@ -36,37 +40,33 @@ namespace SnackDelivery
             txt_accountPhonenum.DataBindings.Clear();
             cbb_role.DataBindings.Clear();
 
-            txt_productId.DataBindings.Add(new Binding("Text", dgv_productList.DataSource, "Id"));
-            txt_productName.DataBindings.Add(new Binding("Text", dgv_productList.DataSource, "Name"));
-            txt_productPrice.DataBindings.Add(new Binding("Text", dgv_productList.DataSource, "Price"));
-            txt_productDiscount.DataBindings.Add(new Binding("Text", dgv_productList.DataSource, "Discount"));
+
 
             txt_accountId.DataBindings.Add(new Binding("Text", dgv_account.DataSource, "Id"));
             txt_accountName.DataBindings.Add(new Binding("Text", dgv_account.DataSource, "Name"));
             txt_accountPhonenum.DataBindings.Add(new Binding("Text", dgv_account.DataSource, "PhoneNumber"));
-            cbb_role.DataBindings.Add(new Binding("Text", dgv_account.DataSource, "IsAdmin"));
-
-
-
-
-
-
+            //cbb_role.DataBindings.Add(new Binding("SelectedItem", dgv_account.DataSource, "IsAdmin"));
 
         }
-        private void LoadData()
+        public void LoadData()
         {
-            var products = (from p in _context.Products select new { Id = p.Id, Name = p.Name, Price = p.Price, Discount = p.Discount }).ToList();
+            var products = (from p in _context.Products where p.Deleted == false select new { Id = p.Id, Name = p.Name, Price = p.Price, Discount = p.Discount }).ToList();
             dgv_productList.DataSource = products;
 
             IEnumerable<Account> accounts = _context.Accounts.ToList();
             dgv_account.DataSource = accounts;
+            // Clear existing items
+            cbb_role.Items.Add(true);
+            cbb_role.Items.Add(false);
 
+
+            DataBinding();
 
         }
 
         private void btn_viewallProduct_Click(object sender, EventArgs e)
         {
-            var products = (from p in _context.Products select new { Id = p.Id, Name = p.Name, Price = p.Price, Discount = p.Discount }).ToList();
+            var products = (from p in _context.Products where p.Deleted == false select new { Id = p.Id, Name = p.Name, Price = p.Price, Discount = p.Discount }).ToList();
             dgv_productList.DataSource = products;
         }
 
@@ -74,6 +74,7 @@ namespace SnackDelivery
         {
             IEnumerable<Account> accounts = _context.Accounts.ToList();
             dgv_account.DataSource = accounts;
+
         }
 
         private void btn_searchAccount_Click(object sender, EventArgs e)
@@ -85,7 +86,6 @@ namespace SnackDelivery
                 dgv_account.DataSource = search;
 
             }
-            DataBinding();
         }
 
         private void btn_searchProduct_Click(object sender, EventArgs e)
@@ -96,13 +96,13 @@ namespace SnackDelivery
                 var search = _context.Products.Where(product => product.Name.Contains(txt_searchProduct.Text)).ToList();
                 dgv_productList.DataSource = search;
             }
-            DataBinding();
 
         }
 
         private void btn_updateProduct_Click(object sender, EventArgs e)
         {
             var productdto = _context.Products.Find(int.Parse(txt_productId.Text));
+
             if (productdto != null)
             {
                 productdto.Name = txt_productName.Text;
@@ -110,8 +110,64 @@ namespace SnackDelivery
                 productdto.Discount = double.Parse(txt_productDiscount.Text);
                 _context.SaveChanges();
             }
-            DataBinding();
             LoadData();
+
+        }
+
+        private void btn_deleteProduct_Click(object sender, EventArgs e)
+        {
+            var productdto = _context.Products.Find(int.Parse(txt_productId.Text));
+            if (productdto != null)
+            {
+                productdto.Deleted = true;
+                _context.SaveChanges();
+            }
+            LoadData();
+
+        }
+
+        private void btn_createProduct_Click(object sender, EventArgs e)
+        {
+            CreateProductForm createProductForm = new CreateProductForm();
+            createProductForm.Show();
+        }
+
+        private void btn_updateAccount_Click(object sender, EventArgs e)
+        {
+            var accountdto = _context.Accounts.Find(int.Parse(txt_accountId.Text));
+            if (accountdto != null)
+            {
+                accountdto.Name = txt_accountName.Text;
+                accountdto.PhoneNumber = txt_accountPhonenum.Text;
+                accountdto.IsAdmin = Boolean.Parse(cbb_role.Text);
+                _context.SaveChanges();
+
+            }
+            LoadData();
+
+        }
+
+        private void cbb_role_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_deleteAccount_Click(object sender, EventArgs e)
+        {
+            var accountdto = _context.Accounts.Find(int.Parse(txt_accountId.Text));
+            if (accountdto != null)
+            {
+                accountdto.Deleted = true;
+                _context.SaveChanges();
+            }
+            LoadData();
+
+        }
+
+        private void btn_create_Click(object sender, EventArgs e)
+        {
+            CreateAccount createAccount = new CreateAccount();  
+            createAccount.Show();   
         }
     }
 }
