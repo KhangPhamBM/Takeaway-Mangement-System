@@ -1,6 +1,6 @@
 ﻿namespace SnackDelivery
 {
-    partial class ProductManagementForm
+    partial class AdminForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,9 +31,9 @@
             Report = new TabPage();
             Account = new TabPage();
             panel9 = new Panel();
-            button12 = new Button();
-            button11 = new Button();
-            button10 = new Button();
+            btn_deleteAccount = new Button();
+            btn_updateAccount = new Button();
+            btn_create = new Button();
             txt_accountPhonenum = new TextBox();
             txt_accountName = new TextBox();
             txt_accountId = new TextBox();
@@ -109,9 +109,9 @@
             // 
             // panel9
             // 
-            panel9.Controls.Add(button12);
-            panel9.Controls.Add(button11);
-            panel9.Controls.Add(button10);
+            panel9.Controls.Add(btn_deleteAccount);
+            panel9.Controls.Add(btn_updateAccount);
+            panel9.Controls.Add(btn_create);
             panel9.Controls.Add(txt_accountPhonenum);
             panel9.Controls.Add(txt_accountName);
             panel9.Controls.Add(txt_accountId);
@@ -125,32 +125,35 @@
             panel9.Size = new Size(350, 350);
             panel9.TabIndex = 3;
             // 
-            // button12
+            // btn_deleteAccount
             // 
-            button12.Location = new Point(250, 223);
-            button12.Name = "button12";
-            button12.Size = new Size(75, 23);
-            button12.TabIndex = 10;
-            button12.Text = "Delete";
-            button12.UseVisualStyleBackColor = true;
+            btn_deleteAccount.Location = new Point(250, 223);
+            btn_deleteAccount.Name = "btn_deleteAccount";
+            btn_deleteAccount.Size = new Size(75, 23);
+            btn_deleteAccount.TabIndex = 10;
+            btn_deleteAccount.Text = "Delete";
+            btn_deleteAccount.UseVisualStyleBackColor = true;
+            btn_deleteAccount.Click += btn_deleteAccount_Click;
             // 
-            // button11
+            // btn_updateAccount
             // 
-            button11.Location = new Point(134, 223);
-            button11.Name = "button11";
-            button11.Size = new Size(75, 23);
-            button11.TabIndex = 9;
-            button11.Text = "Update";
-            button11.UseVisualStyleBackColor = true;
+            btn_updateAccount.Location = new Point(134, 223);
+            btn_updateAccount.Name = "btn_updateAccount";
+            btn_updateAccount.Size = new Size(75, 23);
+            btn_updateAccount.TabIndex = 9;
+            btn_updateAccount.Text = "Update";
+            btn_updateAccount.UseVisualStyleBackColor = true;
+            btn_updateAccount.Click += btn_updateAccount_Click;
             // 
-            // button10
+            // btn_create
             // 
-            button10.Location = new Point(16, 223);
-            button10.Name = "button10";
-            button10.Size = new Size(75, 23);
-            button10.TabIndex = 8;
-            button10.Text = "Create";
-            button10.UseVisualStyleBackColor = true;
+            btn_create.Location = new Point(16, 223);
+            btn_create.Name = "btn_create";
+            btn_create.Size = new Size(75, 23);
+            btn_create.TabIndex = 8;
+            btn_create.Text = "Create";
+            btn_create.UseVisualStyleBackColor = true;
+            btn_create.Click += btn_create_Click;
             // 
             // txt_accountPhonenum
             // 
@@ -175,11 +178,13 @@
             // 
             // cbb_role
             // 
+            cbb_role.DisplayMember = "true";
             cbb_role.FormattingEnabled = true;
             cbb_role.Location = new Point(156, 135);
             cbb_role.Name = "cbb_role";
             cbb_role.Size = new Size(169, 23);
             cbb_role.TabIndex = 4;
+            cbb_role.SelectedIndexChanged += cbb_role_SelectedIndexChanged;
             // 
             // label14
             // 
@@ -241,7 +246,7 @@
             dgv_account.Location = new Point(8, 72);
             dgv_account.Name = "dgv_account";
             dgv_account.RowTemplate.Height = 25;
-            dgv_account.Size = new Size(398, 362);
+            dgv_account.Size = new Size(467, 362);
             dgv_account.TabIndex = 1;
             // 
             // panel7
@@ -251,12 +256,12 @@
             panel7.Controls.Add(label10);
             panel7.Location = new Point(7, 8);
             panel7.Name = "panel7";
-            panel7.Size = new Size(399, 58);
+            panel7.Size = new Size(468, 58);
             panel7.TabIndex = 0;
             // 
             // btn_searchAccount
             // 
-            btn_searchAccount.Location = new Point(308, 32);
+            btn_searchAccount.Location = new Point(390, 31);
             btn_searchAccount.Name = "btn_searchAccount";
             btn_searchAccount.Size = new Size(75, 23);
             btn_searchAccount.TabIndex = 2;
@@ -480,14 +485,15 @@
             product.Size = new Size(869, 508);
             product.TabIndex = 0;
             // 
-            // ProductManagementForm
+            // AdminForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(881, 512);
             Controls.Add(product);
-            Name = "ProductManagementForm";
-            Text = "ProductManagementForm";
+            Name = "AdminForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Admin Form";
             Account.ResumeLayout(false);
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
@@ -511,9 +517,9 @@
         private TabPage Report;
         private TabPage Account;
         private Panel panel9;
-        private Button button12;
-        private Button button11;
-        private Button button10;
+        private Button btn_deleteAccount;
+        private Button btn_updateAccount;
+        private Button btn_create;
         private TextBox txt_accountPhonenum;
         private TextBox txt_accountName;
         private TextBox txt_accountId;

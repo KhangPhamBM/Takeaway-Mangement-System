@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace SnackDelivery
 {
-    public partial class ProductManagementForm : Form
+    public partial class AdminForm : Form
     {
         private SnackDeliveryContext _context = new SnackDeliveryContext();
-        public ProductManagementForm()
+        public AdminForm()
         {
             InitializeComponent();
             LoadData();
@@ -45,13 +45,7 @@ namespace SnackDelivery
             txt_accountId.DataBindings.Add(new Binding("Text", dgv_account.DataSource, "Id"));
             txt_accountName.DataBindings.Add(new Binding("Text", dgv_account.DataSource, "Name"));
             txt_accountPhonenum.DataBindings.Add(new Binding("Text", dgv_account.DataSource, "PhoneNumber"));
-            cbb_role.DataBindings.Add(new Binding("Text", dgv_account.DataSource, "IsAdmin"));
-
-
-
-
-
-
+            //cbb_role.DataBindings.Add(new Binding("SelectedItem", dgv_account.DataSource, "IsAdmin"));
 
         }
         public void LoadData()
@@ -61,6 +55,10 @@ namespace SnackDelivery
 
             IEnumerable<Account> accounts = _context.Accounts.ToList();
             dgv_account.DataSource = accounts;
+            // Clear existing items
+            cbb_role.Items.Add(true);
+            cbb_role.Items.Add(false);
+
 
             DataBinding();
 
@@ -132,6 +130,44 @@ namespace SnackDelivery
         {
             CreateProductForm createProductForm = new CreateProductForm();
             createProductForm.Show();
+        }
+
+        private void btn_updateAccount_Click(object sender, EventArgs e)
+        {
+            var accountdto = _context.Accounts.Find(int.Parse(txt_accountId.Text));
+            if (accountdto != null)
+            {
+                accountdto.Name = txt_accountName.Text;
+                accountdto.PhoneNumber = txt_accountPhonenum.Text;
+                accountdto.IsAdmin = Boolean.Parse(cbb_role.Text);
+                _context.SaveChanges();
+
+            }
+            LoadData();
+
+        }
+
+        private void cbb_role_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_deleteAccount_Click(object sender, EventArgs e)
+        {
+            var accountdto = _context.Accounts.Find(int.Parse(txt_accountId.Text));
+            if (accountdto != null)
+            {
+                accountdto.Deleted = true;
+                _context.SaveChanges();
+            }
+            LoadData();
+
+        }
+
+        private void btn_create_Click(object sender, EventArgs e)
+        {
+            CreateAccount createAccount = new CreateAccount();  
+            createAccount.Show();   
         }
     }
 }
