@@ -61,6 +61,8 @@ namespace SnackDeliveryLibrary.Repository
             {
                 throw new Exception("Wrong Password");
             }
+
+            return true;
         }
     }
 }
