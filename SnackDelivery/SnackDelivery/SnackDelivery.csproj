@@ -21,4 +21,8 @@
     <ProjectReference Include="..\SnackDeliveryLibrary\SnackDeliveryLibrary.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="pop-up\" />
+  </ItemGroup>
+
 </Project>

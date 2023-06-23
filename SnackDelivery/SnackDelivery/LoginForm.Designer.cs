@@ -31,8 +31,8 @@
             lbUsername = new Label();
             lbPassword = new Label();
             lbSnackDelivery = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            txtUsername = new TextBox();
+            txtPassword = new TextBox();
             btnLogin = new Button();
             SuspendLayout();
             // 
@@ -40,9 +40,9 @@
             // 
             lbUsername.AutoSize = true;
             lbUsername.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            lbUsername.Location = new Point(72, 91);
+            lbUsername.Location = new Point(63, 68);
             lbUsername.Name = "lbUsername";
-            lbUsername.Size = new Size(89, 30);
+            lbUsername.Size = new Size(71, 24);
             lbUsername.TabIndex = 0;
             lbUsername.Text = "Username";
             lbUsername.UseCompatibleTextRendering = true;
@@ -51,58 +51,64 @@
             // 
             lbPassword.AutoSize = true;
             lbPassword.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            lbPassword.Location = new Point(74, 143);
+            lbPassword.Location = new Point(65, 107);
             lbPassword.Name = "lbPassword";
-            lbPassword.Size = new Size(87, 25);
+            lbPassword.Size = new Size(70, 20);
             lbPassword.TabIndex = 1;
             lbPassword.Text = "Password";
             // 
             // lbSnackDelivery
             // 
             lbSnackDelivery.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            lbSnackDelivery.Location = new Point(161, 9);
+            lbSnackDelivery.Location = new Point(141, 7);
             lbSnackDelivery.Name = "lbSnackDelivery";
-            lbSnackDelivery.Size = new Size(227, 63);
+            lbSnackDelivery.Size = new Size(199, 47);
             lbSnackDelivery.TabIndex = 2;
             lbSnackDelivery.Text = "Snack Delivery";
             // 
-            // textBox1
+            // txtUsername
             // 
-            textBox1.Location = new Point(189, 89);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(258, 27);
-            textBox1.TabIndex = 3;
+            txtUsername.Location = new Point(165, 67);
+            txtUsername.Margin = new Padding(3, 2, 3, 2);
+            txtUsername.Name = "txtUsername";
+            txtUsername.Size = new Size(226, 23);
+            txtUsername.TabIndex = 3;
             // 
-            // textBox2
+            // txtPassword
             // 
-            textBox2.Location = new Point(189, 141);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(258, 27);
-            textBox2.TabIndex = 4;
+            txtPassword.Location = new Point(165, 106);
+            txtPassword.Margin = new Padding(3, 2, 3, 2);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(226, 23);
+            txtPassword.TabIndex = 4;
             // 
             // btnLogin
             // 
             btnLogin.BackColor = SystemColors.ButtonHighlight;
             btnLogin.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            btnLogin.Location = new Point(206, 206);
+            btnLogin.Location = new Point(180, 154);
+            btnLogin.Margin = new Padding(3, 2, 3, 2);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(109, 38);
+            btnLogin.Size = new Size(95, 28);
             btnLogin.TabIndex = 5;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click;
             // 
             // LoginForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(551, 328);
+            ClientSize = new Size(482, 246);
             Controls.Add(btnLogin);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txtPassword);
+            Controls.Add(txtUsername);
             Controls.Add(lbSnackDelivery);
             Controls.Add(lbPassword);
             Controls.Add(lbUsername);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "LoginForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "LoginForm";
             ResumeLayout(false);
             PerformLayout();
@@ -113,8 +119,8 @@
         private Label lbUsername;
         private Label lbPassword;
         private Label lbSnackDelivery;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox txtUsername;
+        private TextBox txtPassword;
         private Button btnLogin;
     }
 }
