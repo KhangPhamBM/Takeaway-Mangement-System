@@ -38,8 +38,17 @@ namespace SnackDelivery
                 MessageBox.Show("Incorrect Password", "Check your password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            Account_InfoForm admin = new Account_InfoForm();
-            admin.Show();
+
+            if ((bool)account.IsAdmin)
+            {
+                AdminForm admin = new AdminForm();
+                admin.Show();
+            }
+            else
+            {
+                Account_InfoForm acc = new Account_InfoForm(account.Id);
+                acc.Show();
+            }
             this.Hide();
 
         }

@@ -31,12 +31,14 @@ namespace SnackDelivery
 
             }
         }
+        private int accountId;
         BindingList<OrderItem> orderList;
-        public Account_InfoForm()
+        public Account_InfoForm(int accountId)
         {
             InitializeComponent();
             orderList = new BindingList<OrderItem>();
             dgv_Order.DataSource = orderList;
+            this.accountId = accountId;
         }
 
         public void DataBinding()
@@ -110,7 +112,7 @@ namespace SnackDelivery
             if (!orderList.IsNullOrEmpty())
             {
                 Order order = new Order();
-                order.StaffId = 4;
+                order.StaffId = accountId;
                 order.OrderDate = DateTime.Now;
                 var addedOrder = _context.Orders.Add(order);
                 _context.SaveChanges();
