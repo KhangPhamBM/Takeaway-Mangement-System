@@ -22,7 +22,7 @@ namespace SnackDelivery
 
             if (txtPassword.Text.IsNullOrEmpty())
             {
-                MessageBox.Show("Please enter your username.", "Username Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please enter your password.", "Username Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

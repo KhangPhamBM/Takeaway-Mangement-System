@@ -39,6 +39,7 @@ namespace SnackDelivery
             orderList = new BindingList<OrderItem>();
             dgv_Order.DataSource = orderList;
             this.accountId = accountId;
+            setHello();
         }
 
         public void DataBinding()
@@ -129,6 +130,7 @@ namespace SnackDelivery
                 }
                 _context.SaveChanges();
                 reset();
+                MessageBox.Show("Order made successfully", "You can continue making order", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -146,6 +148,15 @@ namespace SnackDelivery
                 return (float)(quan * pri * (100 - dis) / 100);
             }
             return 0;
+        }
+
+        private void setHello()
+        {
+            var account = getAccountById(accountId);
+            if (account != null)
+            {
+                lbHelloUser.Text = "Hello, " + account.Name;
+            }
         }
 
         private float getCurrentBill()
@@ -192,17 +203,11 @@ namespace SnackDelivery
                 return;
 
 
-            if (String.IsNullOrEmpty(txtPhone.Text))
+                if (String.IsNullOrEmpty(txtPhone.Text))
                 {
                     MessageBox.Show("Phone number must not be left empty.", "Phonenumber Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-            }
-
-            if (Regex.IsMatch(txtPhone.Text, @"^[0-9\s\-\+\(\)]+$"))
-            {
-                MessageBox.Show("Name must be in correct format.", "Number Only", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
             }
 
             if (String.IsNullOrEmpty(txtPassword.Text))
@@ -223,15 +228,26 @@ namespace SnackDelivery
                 return;
             }
 
-            Account account = new Account();
-            account.Name = txtName.Text;
+            var account = _context.Accounts.FirstOrDefault(a => a.Id == accountId && a.Name == txtName.Text);
+            if (account == null)
+            {
+                MessageBox.Show("Incorrect Name", "Please check your Name", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (account.PhoneNumber != txtPhone.Text)
+            {
+                MessageBox.Show("Incorrect PhoneNumber", "Please check your Phone number", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             account.Password = txtPassword.Text;
-            account.PhoneNumber = txtPhone.Text;
-            account.IsAdmin = false;
-            account.Deleted = false;
-            _context.Accounts.Add(account);
             _context.SaveChanges();
         }
+
+        private Account getAccountById(int accountId)
+        {
+            return _context.Accounts.FirstOrDefault(a => a.Id == accountId);
+        }
+
     }
-    }
+}
 

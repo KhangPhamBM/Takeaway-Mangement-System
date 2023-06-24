@@ -51,6 +51,7 @@
             txtPrice = new TextBox();
             txtSearch = new TextBox();
             pageAccount = new TabPage();
+            lbChangePassword = new Label();
             btSave = new Button();
             txtConfirm = new TextBox();
             txtPassword = new TextBox();
@@ -71,11 +72,11 @@
             tabStaff.Controls.Add(pageOrder);
             tabStaff.Controls.Add(pageAccount);
             tabStaff.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            tabStaff.Location = new Point(30, 61);
+            tabStaff.Location = new Point(12, 13);
             tabStaff.Margin = new Padding(3, 4, 3, 4);
             tabStaff.Name = "tabStaff";
             tabStaff.SelectedIndex = 0;
-            tabStaff.Size = new Size(912, 521);
+            tabStaff.Size = new Size(851, 560);
             tabStaff.TabIndex = 0;
             // 
             // pageOrder
@@ -104,7 +105,7 @@
             pageOrder.Margin = new Padding(3, 4, 3, 4);
             pageOrder.Name = "pageOrder";
             pageOrder.Padding = new Padding(3, 4, 3, 4);
-            pageOrder.Size = new Size(904, 488);
+            pageOrder.Size = new Size(843, 527);
             pageOrder.TabIndex = 0;
             pageOrder.Text = "Order";
             pageOrder.UseVisualStyleBackColor = true;
@@ -112,20 +113,20 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(52, 455);
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(17, 478);
             label1.Name = "label1";
-            label1.Size = new Size(49, 20);
+            label1.Size = new Size(63, 28);
             label1.TabIndex = 26;
             label1.Text = "Total: ";
             // 
             // lbCurrentTotal
             // 
             lbCurrentTotal.AutoSize = true;
-            lbCurrentTotal.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            lbCurrentTotal.Location = new Point(101, 455);
+            lbCurrentTotal.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lbCurrentTotal.Location = new Point(86, 478);
             lbCurrentTotal.Name = "lbCurrentTotal";
-            lbCurrentTotal.Size = new Size(17, 20);
+            lbCurrentTotal.Size = new Size(23, 28);
             lbCurrentTotal.TabIndex = 25;
             lbCurrentTotal.Text = "0";
             lbCurrentTotal.TextAlign = ContentAlignment.MiddleLeft;
@@ -134,7 +135,7 @@
             // 
             lbDiscount.AutoSize = true;
             lbDiscount.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            lbDiscount.Location = new Point(440, 111);
+            lbDiscount.Location = new Point(354, 108);
             lbDiscount.Name = "lbDiscount";
             lbDiscount.Size = new Size(67, 20);
             lbDiscount.TabIndex = 24;
@@ -143,7 +144,7 @@
             // txtDiscount
             // 
             txtDiscount.Anchor = AnchorStyles.None;
-            txtDiscount.Location = new Point(549, 106);
+            txtDiscount.Location = new Point(437, 105);
             txtDiscount.Margin = new Padding(3, 4, 3, 4);
             txtDiscount.Name = "txtDiscount";
             txtDiscount.Size = new Size(163, 27);
@@ -152,19 +153,19 @@
             // dgv_Order
             // 
             dgv_Order.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_Order.Location = new Point(52, 212);
+            dgv_Order.Location = new Point(16, 212);
             dgv_Order.Margin = new Padding(3, 4, 3, 4);
             dgv_Order.Name = "dgv_Order";
             dgv_Order.RowHeadersWidth = 51;
             dgv_Order.RowTemplate.Height = 25;
-            dgv_Order.Size = new Size(805, 229);
+            dgv_Order.Size = new Size(805, 262);
             dgv_Order.TabIndex = 22;
             // 
             // lbTotal
             // 
             lbTotal.AutoSize = true;
             lbTotal.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            lbTotal.Location = new Point(440, 182);
+            lbTotal.Location = new Point(354, 179);
             lbTotal.Name = "lbTotal";
             lbTotal.Size = new Size(42, 20);
             lbTotal.TabIndex = 21;
@@ -172,7 +173,7 @@
             // 
             // btnAddToCart
             // 
-            btnAddToCart.Location = new Point(763, 103);
+            btnAddToCart.Location = new Point(636, 102);
             btnAddToCart.Margin = new Padding(3, 4, 3, 4);
             btnAddToCart.Name = "btnAddToCart";
             btnAddToCart.Size = new Size(118, 31);
@@ -183,7 +184,7 @@
             // 
             // btnCheckOut
             // 
-            btnCheckOut.Location = new Point(763, 140);
+            btnCheckOut.Location = new Point(636, 139);
             btnCheckOut.Margin = new Padding(3, 4, 3, 4);
             btnCheckOut.Name = "btnCheckOut";
             btnCheckOut.Size = new Size(118, 31);
@@ -216,7 +217,7 @@
             // 
             lbQuantity.AutoSize = true;
             lbQuantity.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            lbQuantity.Location = new Point(440, 146);
+            lbQuantity.Location = new Point(354, 143);
             lbQuantity.Name = "lbQuantity";
             lbQuantity.Size = new Size(65, 20);
             lbQuantity.TabIndex = 16;
@@ -226,11 +227,11 @@
             // 
             lbItemValue.AutoSize = true;
             lbItemValue.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            lbItemValue.Location = new Point(548, 182);
+            lbItemValue.Location = new Point(436, 181);
             lbItemValue.Name = "lbItemValue";
-            lbItemValue.Size = new Size(49, 20);
+            lbItemValue.Size = new Size(17, 20);
             lbItemValue.TabIndex = 15;
-            lbItemValue.Text = "10000";
+            lbItemValue.Text = "0";
             // 
             // lbProductID
             // 
@@ -247,16 +248,15 @@
             lbHelloUser.AutoSize = true;
             lbHelloUser.Location = new Point(34, 24);
             lbHelloUser.Name = "lbHelloUser";
-            lbHelloUser.Size = new Size(53, 20);
+            lbHelloUser.Size = new Size(0, 20);
             lbHelloUser.TabIndex = 13;
-            lbHelloUser.Text = "Hello, ";
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(404, 57);
+            btnSearch.Location = new Point(320, 57);
             btnSearch.Margin = new Padding(3, 4, 3, 4);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(101, 31);
+            btnSearch.Size = new Size(101, 27);
             btnSearch.TabIndex = 12;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = true;
@@ -264,7 +264,7 @@
             // 
             // txtQuantity
             // 
-            txtQuantity.Location = new Point(549, 141);
+            txtQuantity.Location = new Point(437, 140);
             txtQuantity.Margin = new Padding(3, 4, 3, 4);
             txtQuantity.Name = "txtQuantity";
             txtQuantity.Size = new Size(163, 27);
@@ -300,12 +300,13 @@
             txtSearch.Location = new Point(39, 57);
             txtSearch.Margin = new Padding(3, 4, 3, 4);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(311, 27);
+            txtSearch.Size = new Size(272, 27);
             txtSearch.TabIndex = 7;
             // 
             // pageAccount
             // 
             pageAccount.BackColor = Color.White;
+            pageAccount.Controls.Add(lbChangePassword);
             pageAccount.Controls.Add(btSave);
             pageAccount.Controls.Add(txtConfirm);
             pageAccount.Controls.Add(txtPassword);
@@ -319,13 +320,23 @@
             pageAccount.Margin = new Padding(3, 4, 3, 4);
             pageAccount.Name = "pageAccount";
             pageAccount.Padding = new Padding(3, 4, 3, 4);
-            pageAccount.Size = new Size(904, 488);
+            pageAccount.Size = new Size(843, 527);
             pageAccount.TabIndex = 1;
             pageAccount.Text = "Account";
             // 
+            // lbChangePassword
+            // 
+            lbChangePassword.AutoSize = true;
+            lbChangePassword.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            lbChangePassword.Location = new Point(320, 79);
+            lbChangePassword.Name = "lbChangePassword";
+            lbChangePassword.Size = new Size(200, 31);
+            lbChangePassword.TabIndex = 9;
+            lbChangePassword.Text = "Change Password";
+            // 
             // btSave
             // 
-            btSave.Location = new Point(366, 306);
+            btSave.Location = new Point(341, 319);
             btSave.Name = "btSave";
             btSave.Size = new Size(161, 36);
             btSave.TabIndex = 8;
@@ -335,28 +346,28 @@
             // 
             // txtConfirm
             // 
-            txtConfirm.Location = new Point(450, 240);
+            txtConfirm.Location = new Point(425, 253);
             txtConfirm.Name = "txtConfirm";
             txtConfirm.Size = new Size(203, 27);
             txtConfirm.TabIndex = 7;
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(450, 202);
+            txtPassword.Location = new Point(425, 215);
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(203, 27);
             txtPassword.TabIndex = 6;
             // 
             // txtPhone
             // 
-            txtPhone.Location = new Point(450, 165);
+            txtPhone.Location = new Point(425, 178);
             txtPhone.Name = "txtPhone";
             txtPhone.Size = new Size(203, 27);
             txtPhone.TabIndex = 5;
             // 
             // txtName
             // 
-            txtName.Location = new Point(450, 127);
+            txtName.Location = new Point(425, 140);
             txtName.Name = "txtName";
             txtName.Size = new Size(203, 27);
             txtName.TabIndex = 4;
@@ -364,7 +375,7 @@
             // lbConfirmPassword
             // 
             lbConfirmPassword.AutoSize = true;
-            lbConfirmPassword.Location = new Point(265, 247);
+            lbConfirmPassword.Location = new Point(240, 260);
             lbConfirmPassword.Name = "lbConfirmPassword";
             lbConfirmPassword.Size = new Size(137, 20);
             lbConfirmPassword.TabIndex = 3;
@@ -373,7 +384,7 @@
             // lbPassword
             // 
             lbPassword.AutoSize = true;
-            lbPassword.Location = new Point(265, 209);
+            lbPassword.Location = new Point(240, 222);
             lbPassword.Name = "lbPassword";
             lbPassword.Size = new Size(76, 20);
             lbPassword.TabIndex = 2;
@@ -382,7 +393,7 @@
             // lbPhonenumber
             // 
             lbPhonenumber.AutoSize = true;
-            lbPhonenumber.Location = new Point(265, 172);
+            lbPhonenumber.Location = new Point(240, 185);
             lbPhonenumber.Name = "lbPhonenumber";
             lbPhonenumber.Size = new Size(112, 20);
             lbPhonenumber.TabIndex = 1;
@@ -391,7 +402,7 @@
             // lbName
             // 
             lbName.AutoSize = true;
-            lbName.Location = new Point(265, 134);
+            lbName.Location = new Point(240, 147);
             lbName.Name = "lbName";
             lbName.Size = new Size(51, 20);
             lbName.TabIndex = 0;
@@ -401,7 +412,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1135, 757);
+            ClientSize = new Size(881, 586);
             Controls.Add(tabStaff);
             Margin = new Padding(3, 4, 3, 4);
             Name = "Account_InfoForm";
@@ -449,5 +460,6 @@
         private Label lbConfirmPassword;
         private Label lbPassword;
         private Label lbPhonenumber;
+        private Label lbChangePassword;
     }
 }
