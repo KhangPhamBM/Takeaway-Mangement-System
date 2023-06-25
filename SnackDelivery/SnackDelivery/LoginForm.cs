@@ -5,11 +5,11 @@ namespace SnackDelivery
 {
     public partial class LoginForm : Form
     {
-        private SnackDeliveryContext context;
+        private SnackDeliveryContext context = new SnackDeliveryContext();
         public LoginForm()
         {
             InitializeComponent();
-            context = new SnackDeliveryContext();
+
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

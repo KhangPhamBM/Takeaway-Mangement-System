@@ -32,7 +32,7 @@ namespace SnackDelivery
                     Deleted = false
                 };
                 _context.Products.Add(product);
-                _context.SaveChanges();           
+                _context.SaveChanges();
                 this.Close();
             }
         }

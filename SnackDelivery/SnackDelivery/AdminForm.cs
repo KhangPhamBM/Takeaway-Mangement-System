@@ -169,7 +169,7 @@ namespace SnackDelivery
 
         private void btn_create_Click(object sender, EventArgs e)
         {
-            CreateAccount createAccount = new CreateAccount();
+            CreateAccountForm createAccount = new CreateAccountForm();
             createAccount.Show();
         }
 
