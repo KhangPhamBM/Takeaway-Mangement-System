@@ -75,6 +75,13 @@ namespace SnackDelivery
 
         private void btnAddToCart_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtQuantity.Text))
+            {
+                MessageBox.Show("Quantity is left empty", "Quantity must be filled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            
             if (int.TryParse(txtQuantity.Text, out int quantity) && quantity >= 1)
             {
                 foreach (var existedItem in orderList)
@@ -105,6 +112,14 @@ namespace SnackDelivery
                 lbCurrentTotal.Text = getCurrentBill().ToString();
                 refresh();
 
+            }
+            else
+            {
+                if(quantity < 1)
+                {
+                    MessageBox.Show("Quantity must be higher than 0", "Quantity Condition", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
             }
         }
 
