@@ -578,7 +578,7 @@
             Controls.Add(product);
             Name = "AdminForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Admin Form";
+            Text = "Takeaway Mangement System";
             Report.ResumeLayout(false);
             Report.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_report).EndInit();

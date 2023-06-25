@@ -35,6 +35,7 @@
             txt_price = new TextBox();
             txt_discount = new TextBox();
             btn_save = new Button();
+            label4 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -95,11 +96,22 @@
             btn_save.UseVisualStyleBackColor = true;
             btn_save.Click += btn_save_Click;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(142, 9);
+            label4.Name = "label4";
+            label4.Size = new Size(123, 21);
+            label4.TabIndex = 11;
+            label4.Text = "Create Product";
+            // 
             // CreateProductForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(437, 281);
+            Controls.Add(label4);
             Controls.Add(btn_save);
             Controls.Add(txt_discount);
             Controls.Add(txt_price);
@@ -108,7 +120,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "CreateProductForm";
-            Text = "CreateProductForm";
+            Text = "Takeaway Mangement System";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -122,5 +134,6 @@
         private TextBox txt_price;
         private TextBox txt_discount;
         private Button btn_save;
+        private Label label4;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace SnackDelivery
 {
-    partial class CreateAccount
+    partial class CreateAccountForm
     {
         /// <summary>
         /// Required designer variable.

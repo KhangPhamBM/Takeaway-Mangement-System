@@ -28,30 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lbUsername = new Label();
             lbPassword = new Label();
             lbSnackDelivery = new Label();
             txtUsername = new TextBox();
             txtPassword = new TextBox();
             btnLogin = new Button();
+            label1 = new Label();
             SuspendLayout();
-            // 
-            // lbUsername
-            // 
-            lbUsername.AutoSize = true;
-            lbUsername.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            lbUsername.Location = new Point(63, 68);
-            lbUsername.Name = "lbUsername";
-            lbUsername.Size = new Size(71, 24);
-            lbUsername.TabIndex = 0;
-            lbUsername.Text = "Username";
-            lbUsername.UseCompatibleTextRendering = true;
             // 
             // lbPassword
             // 
             lbPassword.AutoSize = true;
             lbPassword.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            lbPassword.Location = new Point(65, 107);
+            lbPassword.Location = new Point(54, 107);
             lbPassword.Name = "lbPassword";
             lbPassword.Size = new Size(70, 20);
             lbPassword.TabIndex = 1;
@@ -79,6 +68,7 @@
             txtPassword.Location = new Point(165, 106);
             txtPassword.Margin = new Padding(3, 2, 3, 2);
             txtPassword.Name = "txtPassword";
+            txtPassword.PasswordChar = '*';
             txtPassword.Size = new Size(226, 23);
             txtPassword.TabIndex = 4;
             // 
@@ -86,7 +76,7 @@
             // 
             btnLogin.BackColor = SystemColors.ButtonHighlight;
             btnLogin.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            btnLogin.Location = new Point(180, 154);
+            btnLogin.Location = new Point(194, 155);
             btnLogin.Margin = new Padding(3, 2, 3, 2);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(95, 28);
@@ -95,32 +85,41 @@
             btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(54, 70);
+            label1.Name = "label1";
+            label1.Size = new Size(105, 20);
+            label1.TabIndex = 6;
+            label1.Text = "Phone number";
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(482, 246);
+            Controls.Add(label1);
             Controls.Add(btnLogin);
             Controls.Add(txtPassword);
             Controls.Add(txtUsername);
             Controls.Add(lbSnackDelivery);
             Controls.Add(lbPassword);
-            Controls.Add(lbUsername);
             Margin = new Padding(3, 2, 3, 2);
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "LoginForm";
+            Text = "Takeaway Mangement System";
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Label lbUsername;
         private Label lbPassword;
         private Label lbSnackDelivery;
         private TextBox txtUsername;
         private TextBox txtPassword;
         private Button btnLogin;
+        private Label label1;
     }
 }

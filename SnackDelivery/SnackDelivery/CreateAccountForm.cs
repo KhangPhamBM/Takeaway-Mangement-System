@@ -11,19 +11,25 @@ using System.Windows.Forms;
 
 namespace SnackDelivery
 {
-    public partial class CreateAccount : Form
+    public partial class CreateAccountForm : Form
     {
         SnackDeliveryContext _context = new SnackDeliveryContext();
-        public CreateAccount()
+        public CreateAccountForm()
         {
             InitializeComponent();
         }
 
         private void btn_save_Click(object sender, EventArgs e)
         {
-            var account = new Account { Name = txt_accountName.Text, Password = txt_password.Text,
-                PhoneNumber = txt_phonenum.Text, IsAdmin = Boolean.Parse(cbRole.Text), Deleted = false };
-            _context.Accounts.Add(account); 
+            var account = new Account
+            {
+                Name = txt_accountName.Text,
+                Password = txt_password.Text,
+                PhoneNumber = txt_phonenum.Text,
+                IsAdmin = Boolean.Parse(cbRole.Text),
+                Deleted = false
+            };
+            _context.Accounts.Add(account);
             _context.SaveChanges();
             this.Close();
         }
